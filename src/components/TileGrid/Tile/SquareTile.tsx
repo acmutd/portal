@@ -1,60 +1,76 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ReactComponent as EduLogo } from '../../../assets/svgs/edu.svg'
-import flyer from '../../../assets/images/flyer.png'
+import React from "react";
+import styled from "styled-components";
+import { ReactComponent as EduLogo } from "../../../assets/svgs/edu.svg"
+import one from "../../../assets/images/flyer.png";
+import two from "../../../assets/images/arduino.png";
+import three from "../../../assets/images/cscareers.png";
+import four from "../../../assets/images/donuts.png";
+import five from "../../../assets/images/interview.png";
+import six from "../../../assets/images/sweacmfinal.png";
 
-
-const SquareTile = () => {
-    return (
-        <TileComponent>
-            <div className="tile-card">
-                <div className="tile-content">
-                    <div className="tile-top">
-                        <div className="tile-title">Socket.io Workshop</div>
-                    </div>
-                    <div className="tile-end">
-                        <div className="tile-end-left">
-                            <div className="tile-date">Tomorrow</div>
-                            <div className="tile-time">10:30PM</div>
-                        </div>
-                        <div className="tile-end-right">
-                            <EduLogo />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </TileComponent>
-    );
+interface propTypes {
+  title: string;
+  date: string;
+  time: string;
+  num: number;
 }
 
+const SquareTile = (props: propTypes) => {
+  return (
+    <TileComponent tabIndex={props.num}>
+      <div className="tile-card">
+        <div className="tile-content">
+          <div className="tile-top">
+            <div className="tile-title">{props.title}</div>
+          </div>
+          <div className="tile-end">
+            <div className="tile-end-left">
+              <div className="tile-date">{props.date}</div>
+              <div className="tile-time">{props.time}</div>
+            </div>
+            <div className="tile-end-right">
+              <EduLogo />
+            </div>
+          </div>
+        </div>
+      </div>
+    </TileComponent>
+  );
+};
+
+//the next few lines are temporary, just to get a cool effect even though its hardcoded
+//absolutely will get refactored
+let arrayOfImages = [one, two, three, four, five, six];
+
 const TileComponent = styled.div`
-    .tile-card {
-        width: 230px;
-        height: 230px;
-        border-radius: 30px;
-        background: black;
-        color: white;
-    }
-    .tile-content {
-        padding: 1.3rem;
-        display: flex;
-        height: inherit;
-        flex-flow: column;
-        justify-content: space-between
-    }
-    .tile-end {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
+  .tile-card {
+    width: 230px;
+    height: 230px;
+    border-radius: 30px;
+    background:url(${props => arrayOfImages[props.tabIndex ? props.tabIndex : 1]});
+    color: black;
+  }
+  .tile-content {
+    padding: 1.3rem;
+    display: flex;
+    height: inherit;
+    flex-flow: column;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    justify-content: space-between;
+  }
+  .tile-end {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    font-size: 1.1rem;
+  }
 
-        font-size: 1.1rem;
-    }
-
-    /* Text */
-    .tile-title {
-        font-size: 1.8rem;
-        font-weight: bold;
-    }
-`
+  /* Text */
+  .tile-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+`;
 
 export default SquareTile;
