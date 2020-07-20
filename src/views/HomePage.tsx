@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Navbar from "../components/Navbar/Navbar";
+import TileGrid from "../components/TileGrid/TileGrid";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   authInterface,
@@ -21,15 +23,22 @@ const HomePage = (props: HomePageProps) => {
     loginWithRedirect();
   };
 
+  // return (
+  //   <div>
+  //     <button onClick={wrapperFunction}>Click me to sign in</button>
+  //     {props.isLoggedIn && !isLoading ? (
+  //       <h1>authenticated</h1>
+  //     ) : (
+  //       <h1>Not Authenticated</h1>
+  //     )}
+  //   </div>
+  // );
+
   return (
-    <div>
-      <button onClick={wrapperFunction}>Click me to sign in</button>
-      {props.isLoggedIn && !isLoading ? (
-        <h1>authenticated</h1>
-      ) : (
-        <h1>Not Authenticated</h1>
-      )}
-    </div>
+    <Fragment>
+        <Navbar />
+        <TileGrid />
+    </Fragment>
   );
 };
 
