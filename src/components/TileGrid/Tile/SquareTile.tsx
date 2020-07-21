@@ -48,13 +48,15 @@ const TileComponent = styled.div`
     height: 230px;
     border-radius: 30px;
     background:url(${props => arrayOfImages[props.tabIndex ? props.tabIndex : 1]});
-    color: black;
+    color: white;
   }
   .tile-content {
     padding: 1.3rem;
     display: flex;
     height: inherit;
     flex-flow: column;
+    /* for the dark tint */
+    background: rgba(0,0,0,0.22);
     backdrop-filter: blur(10px);
     border-radius: 30px;
     justify-content: space-between;
@@ -65,11 +67,17 @@ const TileComponent = styled.div`
     justify-content: space-between;
     font-size: 1.1rem;
   }
-
+  .tile-end-right {
+    margin-left: 0.7rem;
+  }
   /* Text */
   .tile-title {
     font-size: 1.8rem;
     font-weight: bold;
+  }
+
+  :hover {
+    transform: scale(1.07)
   }
 `;
 
