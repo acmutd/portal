@@ -8,9 +8,13 @@ const colors = {
     black: `rgba(0,0,0,1)`
 }
 
-const Navbar = () => {
+interface NavbarProps {
+    onMenu: any
+}
+
+const Navbar = ({ onMenu }: NavbarProps) => {
     return (
-        <NavbarComponenet>
+        <NavbarComponent>
             <div className="navbar-bar">
                 <div className="navbar-content">
                     <div className="navbar-start">
@@ -18,9 +22,9 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-center">
                         <button className="navbar-button">Divisions</button>
-                        <div className="navbar-menu">
+                        <button className="navbar-menu" onClick={onMenu}>
                             <NavbarMenu />
-                        </div>
+                        </button>
                         <button className="navbar-button">Join Us</button>
                     </div>
                     <div className="navbar-end">
@@ -28,11 +32,11 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </NavbarComponenet>
+        </NavbarComponent>
     );
 }
 
-const NavbarComponenet = styled.div`
+const NavbarComponent = styled.div`
     .navbar-bar {
         width: 100%;
         background: linear-gradient(to bottom, ${colors.white}, rgba(0,0,0,0));
@@ -67,6 +71,8 @@ const NavbarComponenet = styled.div`
     .navbar-menu {
         padding: 0.5rem;
         margin: 0rem 2rem;
+        background: none;
+        border: none;
     }
 
     /* nav end */

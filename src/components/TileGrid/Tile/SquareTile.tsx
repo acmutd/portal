@@ -80,6 +80,8 @@ const TileComponent = styled.div`
   :hover {
     transform: scale(1.07)
   }
+
+  :focus {outline:0;}
 `;
 
 export default SquareTile;

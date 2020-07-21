@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import TileGrid from "../components/TileGrid/TileGrid";
 import {
@@ -7,6 +7,7 @@ import {
   logoutAction,
 } from "../actions/authenticate";
 import { connect } from "react-redux";
+import Menu from '../components/Menu/menu'
 
 // interface HomePageProps {
 //   isLoggedIn: boolean;
@@ -14,9 +15,13 @@ import { connect } from "react-redux";
 // }
 
 const HomePage = () => {
+
+  const [menu, setMenu] = useState(false);
+
   return (
     <Fragment>
-        <Navbar />
+        <Menu active={menu} onClose={() => setMenu(false)}/>
+        <Navbar onMenu={() => setMenu(true)}/>
         <TileGrid />
     </Fragment>
   );
