@@ -65,7 +65,7 @@ const TileComponent = styled.div`
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-
+    align-items: flex-end;
     font-size: 1.1rem;
   }
   .tile-end-right {
