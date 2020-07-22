@@ -4,12 +4,12 @@ import { ReactComponent as CloseIcon } from '../../assets/svgs/close_outline_out
 
 interface MenuProps {
     active: boolean,
-    onClose: any
+    onClose(): void
 }
 
 const Menu = ({ active, onClose }: MenuProps) => {
     return active ? (
-        <MenuComponent>
+        <MenuComponent onClick={onClose}>
             <div className="menu-controls">
                 <div className="menu-controls-close" onClick={onClose}>
                     <CloseIcon></CloseIcon>
