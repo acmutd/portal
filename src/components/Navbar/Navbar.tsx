@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as NavbarLogo } from "../../assets/svgs/logo.svg";
 import { ReactComponent as NavbarMenu } from "../../assets/svgs/menu.svg";
 import styled from "styled-components";
+import { isMobile } from "react-device-detect";
 
 const colors = {
   white: `rgba(255,255,255,1)`,
@@ -21,11 +22,20 @@ const Navbar = ({ onMenu }: NavbarProps) => {
             <NavbarLogo width="70px" height="70px" />
           </div>
           <div className="navbar-center">
-            <button className="navbar-button">Divisions</button>
+            {/* Only show the divisions and Join Us buttons on either side of menu if on web */}
+            {isMobile ? (
+              <div />
+            ) : (
+              <button className="navbar-button">Divisions</button>
+            )}
             <button className="navbar-menu" onClick={onMenu}>
               <NavbarMenu />
             </button>
-            <button className="navbar-button">Join Us</button>
+            {isMobile ? (
+              <div />
+            ) : (
+              <button className="navbar-button">Join Us</button>
+            )}
           </div>
           <div className="navbar-end">
             <img
@@ -73,7 +83,7 @@ const NavbarComponent = styled.div`
   }
 
   .navbar-menu {
-    padding: 0.5rem;
+    padding: 0.6rem;
     margin: 0rem 2rem;
     background: none;
     border: none;
@@ -86,7 +96,7 @@ const NavbarComponent = styled.div`
     -webkit-transition-property: -webkit-transform;
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
-     transition-property: transform;
+    transition-property: transform;
   }
 
   .navbar-menu:hover {
