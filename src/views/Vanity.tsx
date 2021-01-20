@@ -8,7 +8,7 @@ const Vanity = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [typeform, setTypeform] = useState("NxomQTLD");
+  const [typeform, setTypeform] = useState("jvI8Qiws");
 
   useEffect(() => {
     load_data();
@@ -34,7 +34,7 @@ const Vanity = () => {
       })
       .then(() => {
         if(email === "") {
-          setTypeform("NxomQTLD");
+          setTypeform("jvI8Qiws");
         }
         else {
           setTypeform(vanity as string);
