@@ -2,6 +2,8 @@ import React from "react";
 import Homepage from "./views/HomePage";
 import Division from "./views/Divisions";
 import Vanity from "./views/Vanity";
+import Sendgrid from "./views/Sendgrid";
+import Event from "./views/Event";
 import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import {
@@ -18,6 +20,8 @@ function App() {
             <Route path="/" component={Vanity} exact />
             <Route path="/divisions" component={Division} exact />
             <Route path="/vanity" component={Vanity} exact />
+            <Route path="/sendgrid" component={Sendgrid} exact />
+            <Route path="/event" component={Event} exact />
             <Route path="/home" component={Homepage} exact />
           </Switch>
         </BrowserView>
@@ -27,6 +31,8 @@ function App() {
             <Route path="/" component={Vanity} exact />
             <Route path="/divisions" component={Division} exact />
             <Route path="/vanity" component={Vanity} exact />
+            <Route path="/sendgrid" component={Sendgrid} exact />
+            <Route path="/event" component={Event} exact />
             <Route path="/home" component={Homepage} exact />
           </Switch>
         </MobileView>

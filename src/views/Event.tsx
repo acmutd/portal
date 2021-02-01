@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Typeform from "../components/Typeform/typeform";
-import { vanity } from "../config/vanity_config";
+import { event } from "../config/vanity_config";
 import axios from "axios";
 import { getCookie } from "../acmApi/cookieManager";
 
-const Vanity = () => {
+const Event = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -37,7 +37,7 @@ const Vanity = () => {
           setTypeform("NxomQTLD");
         }
         else {
-          setTypeform(vanity as string);
+          setTypeform(event as string);
         }
       });
   };
@@ -61,4 +61,4 @@ const Vanity = () => {
   );
 };
 
-export default Vanity;
+export default Event;
