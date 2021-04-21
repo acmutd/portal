@@ -4,6 +4,7 @@ import Division from "./views/Divisions";
 import Vanity from "./views/Vanity";
 import Sendgrid from "./views/Sendgrid";
 import Event from "./views/Event";
+import Form from "./views/Form";
 import "./App.css";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/vanity" component={Vanity} exact />
             <Route path="/sendgrid" component={Sendgrid} exact />
             <Route path="/event" component={Event} exact />
+            <Route path="/form" component={Form} exact />
             <Route path="/home" component={Homepage} exact />
           </Switch>
         </BrowserView>
@@ -33,6 +35,7 @@ function App() {
             <Route path="/vanity" component={Vanity} exact />
             <Route path="/sendgrid" component={Sendgrid} exact />
             <Route path="/event" component={Event} exact />
+            <Route path="/form" component={Form} exact />
             <Route path="/home" component={Homepage} exact />
           </Switch>
         </MobileView>
