@@ -1,5 +1,8 @@
 FROM node:alpine
 
+# Install the Doppler CLI
+RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
+
 WORKDIR /app
 
 COPY package.json /app
@@ -8,4 +11,5 @@ RUN npm install
 
 COPY . /app
 
+ENTRYPOINT ["doppler", "run", "--"]
 CMD ["npm", "run", "dev"]

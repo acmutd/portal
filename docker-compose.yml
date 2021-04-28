@@ -5,3 +5,5 @@ services:
     image: acmutd/portal:latest
     ports: 
       - "3000:3000"
+    environment:
+      - DOPPLER_TOKEN  
