@@ -1,6 +1,9 @@
 # stage1 as builder
 FROM node:alpine as builder
 
+# Install the Doppler CLI
+RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
+
 # copy the package.json to install dependencies
 COPY package.json package-lock.json ./
 
@@ -29,4 +32,5 @@ COPY --from=builder /react-ui/build /usr/share/nginx/html
 
 EXPOSE 3000 3000
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["doppler", "run", "--"]
+CMD ["nginx", "-g", "daemon off;"]
