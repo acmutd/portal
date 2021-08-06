@@ -45,6 +45,27 @@ const Profile = () => {
       <DiscordPane />
     );
 
+  /*const eventCard  = user_profile.profile?.past_events ? ( //Will draw data not from user, but from events database/collection
+      <p>An event exists</p>
+  ) : (
+      <p>No events available</p>
+  )
+
+const eventSections = (
+    <Menu mode="horizontal">
+        <Menu.Item icon={<MailOutlined />} key="Upcoming">
+            Upcoming
+        </Menu.Item>
+        <Menu.Item key="Attending">
+            Attending
+        </Menu.Item>
+        <Menu.Item key="Past">
+            Past
+        </Menu.Item>
+    </Menu>
+) */
+
+
   return (
     <Layout>
       <Navbar selectedPage="profile" />
@@ -175,6 +196,10 @@ const Profile = () => {
           <TabPane tab="Discord" key={5}>
             {discPane}
           </TabPane>
+            {/*<TabPane tab="Events" key={6}>
+              {eventSections}
+              {eventCard}
+          </TabPane>*/}
         </Tabs>
       </Content>
     </Layout>

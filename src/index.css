@@ -1,6 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
-  font-family: sharp-sans;
+    font-family: sharp-sans, serif;
   transition: all 0.2s ease-in-out
 }
 
@@ -21,7 +25,7 @@ code {
 
 @font-face {
   font-family: sharp-sans;
-  font-weight: lighter;
+  font-weight: 200; /* Modified font-weight to 200 to represent light-text */
   src: url(./assets/fonts/samsungsharpsans.otf)
 }
 
