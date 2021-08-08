@@ -4,6 +4,7 @@ import verify from "./actions/initialize";
 import verify_gsuite from "./actions/initialize_gsuite";
 import get_profile from "./actions/profile";
 import get_applications from "./actions/application";
+import get_events from "./actions/event";
 
 export const jwt = atom({
   key: "jwt",
@@ -26,6 +27,13 @@ export const profile = selector({
   get: async ({get}) => {
     return await get_profile(get(jwt).token);
   }
+});
+
+export const event = selector({
+    key: "event",
+    get: async ({get}) => {
+        return await get_events(get(jwt).token);
+    }
 });
 
 export const application = selector({

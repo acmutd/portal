@@ -3,7 +3,7 @@ import { Tabs, Layout } from "antd";
 import Navbar from "../../components/Navbar/DarkNavbar";
 import "./Profile.css";
 import Button from "../../components/OrangeButton/OrangeButton";
-import { profile } from "../../api/state";
+import { profile, event } from "../../api/state";
 import { useRecoilValue } from "recoil";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -14,6 +14,7 @@ const { TabPane } = Tabs;
 const Profile = () => {
   const history = useHistory();
   const user_profile = useRecoilValue(profile);
+  const events = useRecoilValue(event); //Add another check for this later
   const { isLoading, isAuthenticated } = useAuth0();
 
   useEffect(() => {
@@ -45,13 +46,46 @@ const Profile = () => {
       <DiscordPane />
     );
 
-  /*const eventCard  = user_profile.profile?.past_events ? ( //Will draw data not from user, but from events database/collection
-      <p>An event exists</p>
-  ) : (
-      <p>No events available</p>
-  )
+  const eventCard  = (event: any) => {
+    //How do I get the EVENT object?
+    //extract date property
+    //Ignore sub-title - Only display title? Modify padding and all appropriately while keeping current title/sub-title commented out
+    return (
+      <div className="flex items-center lg:max-w-4xl space-x-3 border-2 justify-center rounded-2xl py-4 pl-6 pr-2 bg-gray-900">
+        <div className="flex flex-col justify-center space-y-2 px-4 py-2">
+            <div className="lg:text-3xl text-white text-center">
+                Aug
+            </div>
+            <div className="lg:text-4xl text-white text-center">
+                8
+            </div>
+            <div className="lg:text-3xl text-white text-center">
+                Sun
+            </div>
+        </div>
+        <div className="flex-auto inline-block px-2 py-1 space-y-8">
+            <div className="space-y-2">
+                <div className="lg:text-4xl">
+                    Working with Firebase and Flutter
+                </div>
+                <div className="lg:text-2xl">
+                    with Daniel Gerynd
+                </div>
+            </div>
+            <div className="space-x-8">
+                <a className="inline-block text-white hover:text-white text-base text-center px-1 py-3 w-32 rounded-2xl box-content border-0 bg-gradient-to-r from-red-500 to-yellow-500 hover:from-yellow-500 hover:to-red-500 href=#">
+                    RSVP
+                </a>
+                <a className="inline-block text-white hover:text-white text-base text-center px-1 py-3 w-32 rounded-2xl box-content border-0 bg-gradient-to-r from-red-500 to-yellow-500 hover:from-yellow-500 hover:to-red-500 href=#">
+                    View Event
+                </a>
+            </div>
+        </div>
+      </div>
+    )
+  }
 
-const eventSections = (
+  /*const eventSections = (
     <Menu mode="horizontal">
         <Menu.Item icon={<MailOutlined />} key="Upcoming">
             Upcoming
@@ -63,7 +97,7 @@ const eventSections = (
             Past
         </Menu.Item>
     </Menu>
-) */
+  ) */
 
 
   return (
@@ -95,6 +129,9 @@ const eventSections = (
               Note: If you recently submitted an application, it may take a
               short period of time before appearing
             </p>
+            {
+
+            }
             {user_profile.profile?.past_applications ? (
               user_profile.profile.past_applications
                 .map((app, index) => (
@@ -196,10 +233,18 @@ const eventSections = (
           <TabPane tab="Discord" key={5}>
             {discPane}
           </TabPane>
-            {/*<TabPane tab="Events" key={6}>
-              {eventSections}
-              {eventCard}
-          </TabPane>*/}
+          <TabPane tab="Events" key={6}>
+              <div className="lg:text-2xl text-white">Upcoming Events</div>
+              {events.events? (
+                  events.events
+                      .map((event, index) => (
+                          eventCard(event)
+                      ))
+                      .reverse()
+              ) : (
+                  <p>No events available.</p>
+              )}
+          </TabPane>
         </Tabs>
       </Content>
     </Layout>

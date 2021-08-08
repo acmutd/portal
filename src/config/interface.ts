@@ -73,3 +73,16 @@ export interface application_set {
   total?: number;
   isLoading: boolean;
 }
+
+export interface event {
+    name: string,
+    date: string,
+    path_name: string,
+    public: boolean
+}
+
+export interface events_set {
+    events?: event[],
+    total?: number,
+    isLoading: boolean
+}
