@@ -45,7 +45,7 @@ const Vanity = () => {
     <div>
       <Typeform
         tfLink={
-          "https://acmutd.typeform.com/to/" +
+          `${process.env.REACT_APP_URL_TYPEFORM}` +
           typeform +
           "#email=" +
           email +
