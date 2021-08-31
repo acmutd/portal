@@ -120,7 +120,7 @@ const DiscordPane = () => {
             All our events take place on the ACM Discord Server. Clicking verify
             will check whether you have joined the ACM Discord Server. You can
             join the{" "}
-            <a href="https://acmutd.co/discord">
+            <a href={`https://${process.env.REACT_APP_URL_ROOT}/discord`}>
               ACM Discord Server by clicking here.
             </a>
           </p>

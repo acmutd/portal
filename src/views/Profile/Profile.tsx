@@ -97,7 +97,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://acmutd.co/discord"
+                  href={`https://${process.env.REACT_APP_URL_ROOT}/discord`}
                 >
                   ACM Discord
                 </a>
@@ -106,7 +106,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://www.facebook.com/acmatutd/"
+                  href={process.env.REACT_APP_URL_FACEBOOK}
                 >
                   ACM Facebook
                 </a>
@@ -115,7 +115,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://www.instagram.com/acmutd/"
+                  href={process.env.REACT_APP_URL_INSTAGRAM}
                 >
                   ACM Instagram
                 </a>
@@ -124,7 +124,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://www.linkedin.com/company/acmutd/"
+                  href={process.env.REACT_APP_URL_LINKEDIN}
                 >
                   ACM LinkedIn
                 </a>
@@ -133,7 +133,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://www.acmutd.co/"
+                  href={`https://www.${process.env.REACT_APP_URL_ROOT}/`}
                 >
                   ACM Website
                 </a>

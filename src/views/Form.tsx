@@ -52,7 +52,7 @@ const Form = ({ typeform_id, endpoint }: typeform_info) => {
           setIsAuth(true);
 
           setUrl(
-            "https://acmutd.typeform.com/to/" +
+            `${process.env.REACT_APP_URL_TYPEFORM}` +
               typeform_id +
               "#" +
               new URLSearchParams(res.data).toString()

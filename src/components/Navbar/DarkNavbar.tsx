@@ -27,7 +27,7 @@ const DarkNavbar = ({ selectedPage }: NavbarProps) => {
         <img
           alt="ACMLogo"
           src={ACMLogo}
-          onClick={() => (window.location.href = "https://www.acmutd.co/")}
+          onClick={() => (window.location.href = `https://www.${process.env.REACT_APP_URL_ROOT}/`)}
         />
       </LogoComponent>
       <Menu

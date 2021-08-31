@@ -22,7 +22,7 @@ const CalendarPage = () => {
                   {
                     color: "orange",
                     content: "ACM Spring Kickoff",
-                    link: "https://acmutd.co",
+                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
                   },
                 ];
                 break;
@@ -36,7 +36,7 @@ const CalendarPage = () => {
                   {
                     color: "green",
                     content: "Intern Fair Prep",
-                    link: "https://acmutd.co",
+                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
                   },
                 ];
                 break;
@@ -45,7 +45,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
+                    link: `${process.env.REACT_APP_URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -54,7 +54,7 @@ const CalendarPage = () => {
                   {
                     color: "green",
                     content: "Hacking the Hackathon",
-                    link: "https://acmutd.co",
+                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
                   },
                 ];
                 break;
@@ -68,7 +68,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
+                    link: `${process.env.REACT_APP_URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -77,7 +77,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
+                    link: `${process.env.REACT_APP_URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -91,7 +91,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
+                    link: `${process.env.REACT_APP_URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -100,7 +100,7 @@ const CalendarPage = () => {
                   {
                     color: "blue",
                     content: "Projects Presentation Night",
-                    link: "https://github.com/acmutd",
+                    link: `${process.env.REACT_APP_URL_GITHUB}`,
                   },
                 ];
                 break;
