@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Sentry from "@sentry/react";
 import { application_set } from "../../config/interface";
-
+import { env } from '../../environment'
 const get_applications = async (authToken: string): Promise<application_set> => {
   if (authToken === undefined || authToken === "") {
     return {
@@ -16,7 +16,7 @@ const get_applications = async (authToken: string): Promise<application_set> => 
   };
   const result: application_set = await axios
     .get(
-      (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) + "/auth0/applications",
+      (env.CLOUD_FUNCTION_URL as string) + "/auth0/applications",
       config
     )
     .then((res) => {

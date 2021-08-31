@@ -9,6 +9,7 @@ import * as Sentry from "@sentry/react";
 import Loading from "./views/Message/Loading";
 import { RecoilRoot as GlobalState } from "recoil";
 import Error from "./views/Message/Error";
+import { env } from './environment'
 
 /*
 Sentry Initialization:
@@ -23,15 +24,15 @@ Sentry docs: https://docs.sentry.io/
 */
 
 Sentry.init({
-  dsn: process.env.REACT_APP_SENTRY_DSN,
+  dsn: env.SENTRY_DSN,
   autoSessionTracking: true,
   integrations: [new Integrations.BrowserTracing()],
 
   // We recommend adjusting this value in production, or using tracesSampler
   // for finer control
   tracesSampleRate: 1.0,
-  environment: process.env.NODE_ENV,
-  release: process.env.npm_package_version,
+  environment: env.NODE_ENV,
+  release: env.npm_package_version,
 });
 
 ReactDOM.render(

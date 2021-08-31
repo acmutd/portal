@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import Button2 from "../../components/OrangeButton/OrangeButton";
 import axios from "axios";
+import { env } from '../../environment'
 import "./Discord.css";
 
 const { Step } = Steps;
@@ -35,7 +36,7 @@ const DiscordPane = () => {
       },
     };
     const result = await axios.get(
-      (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) + "/auth0/discord",
+      (env.CLOUD_FUNCTION_URL as string) + "/auth0/discord",
       config
     );
     console.log(result);
@@ -66,7 +67,7 @@ const DiscordPane = () => {
       snowflake: discordProfile?.snowflake,
     };
     const result = await axios.post(
-      (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) +
+      (env.CLOUD_FUNCTION_URL as string) +
         "/auth0/verify-discord",
       data,
       config
@@ -120,7 +121,7 @@ const DiscordPane = () => {
             All our events take place on the ACM Discord Server. Clicking verify
             will check whether you have joined the ACM Discord Server. You can
             join the{" "}
-            <a href={`https://${process.env.REACT_APP_URL_ROOT}/discord`}>
+            <a href={`https://${env.URL_ROOT}/discord`}>
               ACM Discord Server by clicking here.
             </a>
           </p>

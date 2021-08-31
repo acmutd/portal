@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Calendar, Badge } from "antd";
 import Navbar from "../../components/Navbar/DarkNavbar";
+import { env } from '../../environment'
 import "./Calendar.css";
 
 interface calendarEvent {
@@ -22,7 +23,7 @@ const CalendarPage = () => {
                   {
                     color: "orange",
                     content: "ACM Spring Kickoff",
-                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
+                    link: `https://${env.URL_ROOT}`,
                   },
                 ];
                 break;
@@ -36,7 +37,7 @@ const CalendarPage = () => {
                   {
                     color: "green",
                     content: "Intern Fair Prep",
-                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
+                    link: `https://${env.URL_ROOT}`,
                   },
                 ];
                 break;
@@ -45,7 +46,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: `${process.env.REACT_APP_URL_GITHUB}`,
+                    link: `${env.URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -54,7 +55,7 @@ const CalendarPage = () => {
                   {
                     color: "green",
                     content: "Hacking the Hackathon",
-                    link: `https://${process.env.REACT_APP_URL_ROOT}`,
+                    link: `https://${env.URL_ROOT}`,
                   },
                 ];
                 break;
@@ -68,7 +69,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: `${process.env.REACT_APP_URL_GITHUB}`,
+                    link: `${env.URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -77,7 +78,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: `${process.env.REACT_APP_URL_GITHUB}`,
+                    link: `${env.URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -91,7 +92,7 @@ const CalendarPage = () => {
                   {
                     color: "purple",
                     content: "Fireside Talks with ACM Development",
-                    link: `${process.env.REACT_APP_URL_GITHUB}`,
+                    link: `${env.URL_GITHUB}`,
                   },
                 ];
                 break;
@@ -100,7 +101,7 @@ const CalendarPage = () => {
                   {
                     color: "blue",
                     content: "Projects Presentation Night",
-                    link: `${process.env.REACT_APP_URL_GITHUB}`,
+                    link: `${env.URL_GITHUB}`,
                   },
                 ];
                 break;

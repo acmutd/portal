@@ -2,6 +2,7 @@ import * as jwt from "jsonwebtoken";
 import axios from "axios";
 import * as Sentry from "@sentry/react";
 import { decoded_jwt, auth_status } from "../../config/interface";
+import { env } from '../../environment'
 
 const verify_gsuite = async (authToken: string): Promise<auth_status> => {
   if (authToken === undefined || authToken === "") {
@@ -30,7 +31,7 @@ const verify_gsuite = async (authToken: string): Promise<auth_status> => {
   };
   const auth: auth_status = await axios
     .get(
-      (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) +
+      (env.CLOUD_FUNCTION_URL as string) +
         "/" +
         decoded_idp +
         "/verify-jwt",

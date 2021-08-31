@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Sentry from "@sentry/react";
 import { profile } from "../../config/interface";
-
+import { env } from '../../environment'
 const get_profile = async (authToken: string): Promise<profile> => {
   if (authToken === undefined || authToken === "") {
     return {
@@ -17,7 +17,7 @@ const get_profile = async (authToken: string): Promise<profile> => {
   };
   const result: profile = await axios
     .get(
-      (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) + "/auth0/profile",
+      (env.CLOUD_FUNCTION_URL as string) + "/auth0/profile",
       config
     )
     .then((res) => {

@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
-
-const BASE_URL = process.env.NODE_ENV === "production" ? process.env.REACT_APP_PRODUCTION_URL : process.env.REACT_APP_LOCAL_URL
+import { env } from '../environment'
+const BASE_URL = env.NODE_ENV === "production" ? env.PRODUCTION_URL : env.LOCAL_URL
 
 function getBaseApi(): AxiosInstance {
     return axios.create({

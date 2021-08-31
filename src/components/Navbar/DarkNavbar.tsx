@@ -4,6 +4,7 @@ import { Layout, Menu } from "antd";
 import { useAuth0 } from "@auth0/auth0-react";
 import ACMLogo from "../../assets/images/acm-light.png";
 import { useHistory } from "react-router-dom";
+import { env } from '../../environment'
 import "./DarkNavbar.css";
 const { Header } = Layout;
 
@@ -27,7 +28,7 @@ const DarkNavbar = ({ selectedPage }: NavbarProps) => {
         <img
           alt="ACMLogo"
           src={ACMLogo}
-          onClick={() => (window.location.href = `https://www.${process.env.REACT_APP_URL_ROOT}/`)}
+          onClick={() => (window.location.href = `https://www.${env.URL_ROOT}/`)}
         />
       </LogoComponent>
       <Menu

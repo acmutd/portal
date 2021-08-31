@@ -8,6 +8,7 @@ import { useRecoilValue } from "recoil";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import DiscordPane from "./Discord";
+import { env } from '../../environment'
 const { Content } = Layout;
 const { TabPane } = Tabs;
 
@@ -97,7 +98,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href={`https://${process.env.REACT_APP_URL_ROOT}/discord`}
+                  href={`https://${env.URL_ROOT}/discord`}
                 >
                   ACM Discord
                 </a>
@@ -106,7 +107,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href={process.env.REACT_APP_URL_FACEBOOK}
+                  href={env.URL_FACEBOOK}
                 >
                   ACM Facebook
                 </a>
@@ -115,7 +116,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href={process.env.REACT_APP_URL_INSTAGRAM}
+                  href={env.URL_INSTAGRAM}
                 >
                   ACM Instagram
                 </a>
@@ -124,7 +125,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href={process.env.REACT_APP_URL_LINKEDIN}
+                  href={env.URL_LINKEDIN}
                 >
                   ACM LinkedIn
                 </a>
@@ -133,7 +134,7 @@ const Profile = () => {
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href={`https://www.${process.env.REACT_APP_URL_ROOT}/`}
+                  href={`https://www.${env.URL_ROOT}/`}
                 >
                   ACM Website
                 </a>

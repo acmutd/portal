@@ -1,3 +1,4 @@
-export const vanity = process.env.REACT_APP_VANITY_TYPEFORM as string;
-export const pro = process.env.REACT_APP_PROFILE_TYPEFORM as string;
-export const survey = process.env.REACT_APP_PARTICIPATION_TYPEFORM as string;
+import { env } from '../environment'
+export const vanity = env.VANITY_TYPEFORM as string;
+export const pro = env.PROFILE_TYPEFORM as string;
+export const survey = env.PARTICIPATION_TYPEFORM as string;

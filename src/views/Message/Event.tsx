@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { jwt } from "../../api/state";
 import { useRecoilState } from "recoil";
 import axios from "axios";
+import { env } from '../../environment'
 
 const EventPage = () => {
   const { isLoading, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -28,7 +29,7 @@ const EventPage = () => {
         },
       };
       const result = await axios.get(
-        (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) +
+        (env.CLOUD_FUNCTION_URL as string) +
           "/auth0/checkin" +
           "?checkpath=" +
           window.location.pathname,

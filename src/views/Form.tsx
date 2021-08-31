@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import Unauthorized from "./Message/Unauthorized";
 import * as Sentry from "@sentry/react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { env } from '../environment'
 
 interface typeform_info {
   typeform_id: string;
@@ -45,14 +46,14 @@ const Form = ({ typeform_id, endpoint }: typeform_info) => {
       };
       axios
         .get(
-          (process.env.REACT_APP_CLOUD_FUNCTION_URL as string) + endpoint,
+          (env.REACT_APP_CLOUD_FUNCTION_URL as string) + endpoint,
           config
         )
         .then((res) => {
           setIsAuth(true);
 
           setUrl(
-            `${process.env.REACT_APP_URL_TYPEFORM}` +
+            `${env.REACT_APP_URL_TYPEFORM}` +
               typeform_id +
               "#" +
               new URLSearchParams(res.data).toString()
