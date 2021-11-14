@@ -4,7 +4,7 @@ import Form from "./views/Form";
 import Applications from "./views/Applications/Applications";
 import Profile from "./views/Profile/Profile";
 import "./App.css";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import Welcome from "./views/Message/Welcome";
 import GsuiteLanding from "./views/Message/GsuiteLanding";
 import GenericMessage from "./views/Message/GenericMessage";
@@ -21,6 +21,14 @@ import GsuiteAuthorize from "./components/Actions/GsuiteAuthorize";
 import ProfileInjectedTypeform from "./views/ProfileInjectedTypeform";
 import Auth0ProtectedRoute from "./components/Actions/Auth0Route";
 import Auth0Authorize from "./components/Actions/Auth0Authorize";
+import Framework from "./components/Framework";
+import SidebarContent from "./components/SidebarContent";
+import Events from "./views/Events";
+import LoginForm from "./components/LoginForm";
+import Login from "./views/Login";
+import News from "./views/News";
+import Apply from "./views/Apply";
+import History from "./views/History";
 /**
  * Note: Use Component with Capital C when using a protected route
  * AuthRoute = protected by Auth0
@@ -56,7 +64,26 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Welcome} exact />
+          <Route path="/" exact>
+            <Redirect to="/login" />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup"></Route>
+          <Route path="/events">
+            <Events />
+          </Route>
+          <Route path="/news">
+            <News />
+          </Route>
+          <Route path="/apply">
+            <Apply />
+          </Route>
+          <Route path="/history">
+            <History />
+          </Route>
+          {/* <Route path="/" component={Welcome} exact />
           <Route path="/authorize" component={Auth0Authorize} />
           <Auth0ProtectedRoute
             path="/newprofile"
@@ -103,7 +130,7 @@ function App() {
             path="/form"
             Component={<ProfileInjectedTypeform typeform_id={form} />}
           />
-          <Route path="/*" component={Message404} />
+          <Route path="/*" component={Message404} /> */}
         </Switch>
       </BrowserRouter>
     </div>

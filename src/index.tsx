@@ -22,17 +22,17 @@ ACM Sentry how to guide: https://docs.google.com/document/d/1jD4rd2_0TvC2RyjU3XN
 Sentry docs: https://docs.sentry.io/
 */
 
-Sentry.init({
-  dsn: process.env.REACT_APP_SENTRY_DSN,
-  autoSessionTracking: true,
-  integrations: [new Integrations.BrowserTracing()],
+// Sentry.init({
+//   dsn: process.env.REACT_APP_SENTRY_DSN,
+//   autoSessionTracking: true,
+//   integrations: [new Integrations.BrowserTracing()],
 
-  // We recommend adjusting this value in production, or using tracesSampler
-  // for finer control
-  tracesSampleRate: 1.0,
-  environment: process.env.NODE_ENV,
-  release: process.env.npm_package_version,
-});
+//   // We recommend adjusting this value in production, or using tracesSampler
+//   // for finer control
+//   tracesSampleRate: 1.0,
+//   environment: process.env.NODE_ENV,
+//   release: process.env.npm_package_version,
+// });
 
 ReactDOM.render(
   <React.StrictMode>

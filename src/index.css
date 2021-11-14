@@ -1,4 +1,13 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* * {
   box-sizing: border-box;
   font-family: sharp-sans;
   transition: all 0.2s ease-in-out
@@ -35,4 +44,4 @@ code {
   font-family: sharp-sans;
   font-weight: bold;
   src: url(./assets/fonts/samsungsharpsans-bold.otf)
-}
+} */
