@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Tabs, Layout } from "antd";
 import Navbar from "../../components/Navbar/DarkNavbar";
 import "./Profile.css";
@@ -7,7 +7,9 @@ import { profile } from "../../api/state";
 import { useRecoilValue } from "recoil";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import DiscordPane from "./Discord";
+import { firebaseStorage as storage } from '../../api/firebase/config';
+import { ref, uploadBytes, list } from 'firebase/storage';
+// import DiscordPane from "./Discord";
 const { Content } = Layout;
 const { TabPane } = Tabs;
 
@@ -15,9 +17,18 @@ const Profile = () => {
   const history = useHistory();
   const user_profile = useRecoilValue(profile);
   const { isLoading, isAuthenticated } = useAuth0();
+  const [uploadReady, setUploadReady] = useState(false);
+  const [previousUpload, setPreviousUpload] = useState(false);
+  const uploadRef = useRef<HTMLInputElement>();
 
   useEffect(() => {
     if (isLoading || user_profile.exists || user_profile.isLoading) {
+      const resumeRef = ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`);
+      list(ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/`)).then((data) => {
+        data.items.forEach((i) => {
+          if (i.name === resumeRef.name) setPreviousUpload(true);
+        });
+      });
       return;
     }
     if (isAuthenticated) {
@@ -25,25 +36,40 @@ const Profile = () => {
     }
   }, [isLoading, isAuthenticated, user_profile, history]);
 
-  const discPane =
-    user_profile.profile?.discord_verified || false ? (
-      <Fragment>
-        <h1 style={{ color: "white", marginBottom: 20 }}>
-          Your Discord Profile:
-        </h1>
-        <p>
-          <strong>Discord ID:</strong> {user_profile.profile?.snowflake}
-        </p>
-        <p>
-          <strong>Username:</strong>{" "}
-          {user_profile.profile?.username +
-            "#" +
-            user_profile.profile?.discriminator}
-        </p>
-      </Fragment>
-    ) : (
-      <DiscordPane />
-    );
+  const handleResumeUploadReady = () => {
+    if (uploadRef.current.files.length !== 1 ||
+      !uploadRef.current.files[0].name.endsWith(".pdf")) return alert("Please make sure you upload a single file ending in .pdf");
+    setUploadReady(true);
+  };
+  const handleResumeUpload = () => {
+
+    const resumeRef = ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`);
+    uploadBytes(resumeRef, uploadRef.current.files[0]).then((result) => {
+      alert("Upload succeeded...");
+      setPreviousUpload(true);
+    }).catch((err) => alert("Upload failed. Please try again later..."));
+    setUploadReady(false);
+  };
+
+  // const discPane =
+  //   user_profile.profile?.discord_verified || false ? (
+  //     <Fragment>
+  //       <h1 style={{ color: "white", marginBottom: 20 }}>
+  //         Your Discord Profile:
+  //       </h1>
+  //       <p>
+  //         <strong>Discord ID:</strong> {user_profile.profile?.snowflake}
+  //       </p>
+  //       <p>
+  //         <strong>Username:</strong>{" "}
+  //         {user_profile.profile?.username +
+  //           "#" +
+  //           user_profile.profile?.discriminator}
+  //       </p>
+  //     </Fragment>
+  //   ) : (
+  //     <DiscordPane />
+  //   );
 
   return (
     <Layout>
@@ -140,6 +166,20 @@ const Profile = () => {
               </li>
             </ul>
           </TabPane>
+          <TabPane tab="Upload Resume" key={"KEKW"}>
+            <div id="upload_container">
+              <input id="resume_input" type="file" ref={uploadRef} onChange={handleResumeUploadReady} />
+              {previousUpload && <div className="upload_found">{`Resume record found. To replace the current record, please reupload your resume.`}</div>}
+              {!uploadReady ?
+                <>
+                  <label id="resume_input_label" htmlFor="resume_input">Upload Resume</label>
+                </> :
+                <Button
+                  text="Confirm Upload"
+                  onClick={handleResumeUpload}
+                />}
+            </div>
+          </TabPane>
           {/*<TabPane tab="Badges" key={3}>
             Content 3
                 </TabPane>*/}
@@ -172,9 +212,9 @@ const Profile = () => {
               redirectURL="/newprofile"
             />
           </TabPane>
-          <TabPane tab="Discord" key={5}>
+          {/* <TabPane tab="Discord" key={5}>
             {discPane}
-          </TabPane>
+          </TabPane> */}
         </Tabs>
       </Content>
     </Layout>
