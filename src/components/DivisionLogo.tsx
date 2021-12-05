@@ -7,7 +7,14 @@ import { ReactComponent as IndustryLogo } from '../assets/svgs/division_logos/bl
 import { ReactComponent as EduLogo } from '../assets/svgs/division_logos/black/education.svg';
 import { ReactComponent as CommLogo } from '../assets/svgs/division_logos/black/community.svg';
 import { ReactComponent as HackLogo } from '../assets/svgs/division_logos/black/hackutd.svg';
-
+import { ReactComponent as WhiteProjLogo } from '../assets/svgs/division_logos/white/projects.svg';
+import { ReactComponent as WhiteMediaLogo } from '../assets/svgs/division_logos/white/media.svg';
+import { ReactComponent as WhiteResLogo } from '../assets/svgs/division_logos/white/research.svg';
+import { ReactComponent as WhiteDevLogo } from '../assets/svgs/division_logos/white/development.svg';
+import { ReactComponent as WhiteIndustryLogo } from '../assets/svgs/division_logos/white/industry.svg';
+import { ReactComponent as WhiteEduLogo } from '../assets/svgs/division_logos/white/education.svg';
+import { ReactComponent as WhiteCommLogo } from '../assets/svgs/division_logos/white/community.svg';
+import { ReactComponent as WhiteHackLogo } from '../assets/svgs/division_logos/white/hackutd.svg';
 
 
 
@@ -16,40 +23,48 @@ import { ReactComponent as HackLogo } from '../assets/svgs/division_logos/black/
 const divisionDecider = {
     projects: {
         display: "ACM Projects",
-        logo: <ProjLogo/>
+        black: <ProjLogo/>,
+        white: <WhiteProjLogo/>
     },
     media: {
         display: "ACM Media",
-        logo: <MediaLogo/>
+        black: <MediaLogo/>,
+        white: <WhiteMediaLogo/>
     },
     development: {
         display: "ACM Engineering",
-        logo: <DevLogo/>
+        black: <DevLogo/>,
+        white: <WhiteDevLogo/>
     },
     research: {
         display: "ACM Research",
-        logo: <ResLogo/>
+        black: <ResLogo/>,
+        white: <WhiteResLogo/>
     },
     industry: {
         display: "Industry",
-        logo: <IndustryLogo/>
+        black: <IndustryLogo/>,
+        white: <WhiteIndustryLogo/>
     },
     education: {
         display: "ACM Education",
-        logo: <EduLogo/>
+        black: <EduLogo/>,
+        white: <WhiteEduLogo/>
     },
     community: {
         display: "ACM Community",
-        logo: <CommLogo/>
+        black: <CommLogo/>,
+        white: <WhiteCommLogo/>
     },
     hackutd: {
         display: "HackUTD",
-        logo: <HackLogo/>
+        black: <HackLogo/>,
+        white: <WhiteHackLogo/>
     }
 }
 
 const Logo = (props: any) => {
-    return divisionDecider[props.division].logo
+    return divisionDecider[props.division][props.color]
 }
 
 
