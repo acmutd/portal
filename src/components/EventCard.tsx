@@ -2,21 +2,21 @@ import React from "react"
 import Logo from "./DivisionLogo"
 
 const displayText = {
-    projects: "ACM Projects",
-    media: "ACM Media",
-    development: "ACM Engineering",
-    research: "ACM Research",
-    industry: "Industry",
-    education: "ACM Education",
-    community: "ACM Community",
-    hackutd: "HackUTD",
+    projects: "projects.",
+    media: "media.",
+    development: "engineering.",
+    research: "research.",
+    industry: "industry.",
+    education: "education.",
+    community: "community.",
+    hackutd: "hackutd.",
 }
 
 const EventCard = ({dept}: any) => {
     // hardcoded info for each event card, this'll be what we need for each card atm
     const name = "ACM x Goldman Sachs Engineering Presents: alloy"
     // dept = "education"
-    const date: Date = new Date(2021, 9, 15, 19, 30, 0)
+    const date: Date = new Date(2021, 9, 15, 19, 29, 0)
     let dateString = date.toDateString().split(' ')
     const status = "Ongoing" // need time to figure out how to format this
 
@@ -36,6 +36,10 @@ const EventCard = ({dept}: any) => {
                     <div className="text-center font-light text-xl">
                         {dateString[1]}
                     </div>
+                    {/* grabbing time of event as such -
+                    <div className="text-center font-light text-xs">
+                        {(date.getHours() + 1) + ":" + (date.getMinutes() + 1)}
+                    </div> */}
                 </div>
                 {/* title & division */}
                 <div className="flex flex-col justify-between">
@@ -44,7 +48,7 @@ const EventCard = ({dept}: any) => {
                     </div>
                     <div className="flex justify-end items-end">
                         <Logo division={dept} color="white"/>
-                        <div className="text-center font-semibold text-2xs ml-1">
+                        <div className={`text-center font-semibold text-xs ml-1 projects-gradient ${dept + "-gradient"}`}>
                             {displayText[dept]}
                         </div>
                     </div>
