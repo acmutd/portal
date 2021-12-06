@@ -63,7 +63,7 @@ const divisionDecider = {
 const Logo = ({division, color}: any) => {
     return <img 
                 src={divisionDecider[division][color]}
-                style={{ height: 20, width: 20 }}
+                style={{ height: 22, width: 22 }}
                 alt={divisionDecider[division]["display"]}
             />
 }

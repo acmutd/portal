@@ -5,11 +5,11 @@ import SidebarContent from "./SidebarContent";
 
 function Framework(props: any) {
   return (
-    <div className="h-min-screen flex flex-col sm:flex-row justify-end">
+    <div className="h-min-screen flex flex-col md:flex-row justify-end">
       <div className="hidden md:flex flex-grow border-gray-400 dark:border-gray-600 border-r">
         <NavbarDesktop />
       </div>
-      <div className=" flex flex-col h-full flex-grow-0 max-w-xl">
+      <div className=" flex flex-col h-full flex-grow-0 lg:max-w-xl">
         {props.content}
       </div>
       <div className="flex-grow md:border-l border-gray-400 dark:border-gray-600">

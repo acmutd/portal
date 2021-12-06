@@ -6,6 +6,11 @@
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
   }
+
+  .text-2xs {
+    font-size: 10px;
+    line-height: .75rem/* 12px */;
+}
 }
 
 @layer base {

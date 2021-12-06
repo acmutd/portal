@@ -6,9 +6,9 @@ module.exports = {
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
-      },
+      screens: {
+        'xs': '380px',
+      }
     },
     colors: {
       transparent: "transparent",
@@ -19,6 +19,9 @@ module.exports = {
       red: colors.red,
       blue: colors.sky,
       yellow: colors.amber,
+    },
+    fontFamily: {
+      sans: ['Poppins', ...defaultTheme.fontFamily.sans],
     },
   },
   variants: {
