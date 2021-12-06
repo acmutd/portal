@@ -14,10 +14,10 @@ function Navbar(props: any) {
       <NavButton href="/events" text="Events">
         <CalendarIcon className="h-8 w-8" />
       </NavButton>
-      <NavButton href="/news" text="News">
+      {/* <NavButton href="/news" text="News">
         <NewspaperIcon className="h-8 w-8" />
         <Logo division="education" color="white"/>
-      </NavButton>
+      </NavButton> */}
       <NavButton href="/apply" text="Apply">
         <BriefcaseIcon className="h-8 w-8" />
       </NavButton>

@@ -14,9 +14,9 @@ function NavbarDesktop(props: any) {
         <NavButtonDesktop href="/events" text="Events">
           <CalendarIcon className="h-12 w-12" />
         </NavButtonDesktop>
-        <NavButtonDesktop href="/news" text="News">
+        {/* <NavButtonDesktop href="/news" text="News">
           <NewspaperIcon className="h-12 w-12" />
-        </NavButtonDesktop>
+        </NavButtonDesktop> */}
         <NavButtonDesktop href="/apply" text="Apply">
           <BriefcaseIcon className="h-12 w-12" />
         </NavButtonDesktop>
