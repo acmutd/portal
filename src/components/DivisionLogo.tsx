@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import { ReactComponent as ProjLogo } from '../assets/svgs/division_logos/black/projects.svg';
 import { ReactComponent as MediaLogo } from '../assets/svgs/division_logos/black/media.svg';
 import { ReactComponent as ResLogo } from '../assets/svgs/division_logos/black/research.svg';
@@ -15,10 +16,6 @@ import { ReactComponent as WhiteIndustryLogo } from '../assets/svgs/division_log
 import { ReactComponent as WhiteEduLogo } from '../assets/svgs/division_logos/white/education.svg';
 import { ReactComponent as WhiteCommLogo } from '../assets/svgs/division_logos/white/community.svg';
 import { ReactComponent as WhiteHackLogo } from '../assets/svgs/division_logos/white/hackutd.svg';
-
-
-
-
 
 const divisionDecider = {
     projects: {
@@ -63,9 +60,13 @@ const divisionDecider = {
     }
 }
 
-const Logo = (props: any) => {
-    return divisionDecider[props.division][props.color]
+const Logo = ({division, color}: any) => {
+    return divisionDecider[division][color]
 }
 
+Logo.propTypes = {
+    division: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired
+}
 
 export default Logo

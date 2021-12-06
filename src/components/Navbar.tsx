@@ -16,7 +16,7 @@ function Navbar(props: any) {
       </NavButton>
       <NavButton href="/news" text="News">
         <NewspaperIcon className="h-8 w-8" />
-        {/* <Logo division="education" color="white"/> logo usage */}
+        <Logo division="education" color="white"/>
       </NavButton>
       <NavButton href="/apply" text="Apply">
         <BriefcaseIcon className="h-8 w-8" />
