@@ -13,8 +13,8 @@ function Framework(props: any) {
         {props.content}
       </div>
       <div className="flex-grow md:border-l border-gray-400 dark:border-gray-600">
-        <div className="hidden lg:block">
-          <div className="flex flex-col max-w-sm">{props.sidebar}</div>
+        <div className="hidden lg:block h-full">
+          <div className="flex flex-col max-w-sm sticky top-0">{props.sidebar}</div>
         </div>
       </div>
       <Navbar />

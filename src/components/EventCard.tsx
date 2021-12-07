@@ -23,7 +23,7 @@ const EventCard = ({dept, status}: any) => {
 
     return (
         /* spacing */
-        <div className="h-auto w-full p-6 pb-0">
+        <div className="h-auto w-full p-6 pt-0">
             {/* card */}
             <div className=" relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
                 {/* status card */}

@@ -71,7 +71,15 @@
   }
 
   .status {
-    @apply absolute right-0 top-0 px-2 py-0.5 h-auto w-auto rounded-tr-bl-xl text-sm text-center
+    @apply absolute right-0 top-0 px-2 py-0.5 h-auto w-auto rounded-tr-bl-xl text-sm text-center;
+  }
+
+  .h-screen-1\/12 {
+    height: 8vh;
+  }
+
+  .top-1\/12 {
+    top: 8%;
   }
 }
 
