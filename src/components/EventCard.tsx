@@ -24,7 +24,7 @@ const EventCard = ({dept}: any) => {
         /* spacing */
         <div className="h-auto w-full p-6 pb-0">
             {/* card */}
-            <div className="h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between">
+            <div className="h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
                 {/* date */}
                 <div className="flex flex-col justify-center">
                     <div className="text-center font-light text-base">
@@ -46,7 +46,7 @@ const EventCard = ({dept}: any) => {
                     <div className="text-right font-medium text-lg pl-4 pt-4 xs:text-xl">
                         {name}
                     </div>
-                    <div className="flex justify-end items-end">
+                    <div className="flex justify-end items-end select-none">
                         <Logo division={dept} color="white"/>
                         <div className={`text-center font-semibold text-xs ml-1 projects-gradient ${dept + "-gradient"}`}>
                             {displayText[dept]}
