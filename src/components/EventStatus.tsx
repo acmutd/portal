@@ -7,12 +7,12 @@ import PropTypes from 'prop-types'
 
 const EventStatus = ({ status }) => {
     if (status === 1) {
-        return <div className="status ongoing-gradient md:hidden">
+        return <div className="status ongoing-gradient">
             Ongoing
         </div>
     }
     if (status === 2) {
-        return <div className="status attending-gradient md:hidden">
+        return <div className="status attending-gradient">
             Attending
         </div>
     }
