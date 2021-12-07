@@ -1,7 +1,6 @@
 import React from "react"
 import Logo from "./DivisionLogo"
 import EventStatus from "./EventStatus"
-import { ReactComponent as AcmLogo } from "../assets/svgs/acm.svg"
 
 const displayText = {
     projects: "projects.",
@@ -17,7 +16,6 @@ const displayText = {
 const EventCard = ({data}: any) => {
     const datetime: Date = new Date(data.date)
     let dateString = datetime.toDateString().split(' ')
-
 
     return (
         /* spacing */
@@ -37,9 +35,9 @@ const EventCard = ({data}: any) => {
                     <div className="text-center font-light text-xl">
                         {dateString[1]}
                     </div>
-                    {/* grabbing time of event as such -
-                    <div className="text-center font-light text-xs">
-                        {(date.getHours() + 1) + ":" + (date.getMinutes() + 1)}
+                    {/* grabbing time of event as such - */}
+                    {/* <div className="text-center font-light text-xs">
+                        {(datetime.getHours() + 1) + ":" + (datetime.getMinutes() + 1)}
                     </div> */}
                 </div>
                 {/* title & division */}
