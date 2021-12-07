@@ -18,7 +18,7 @@ const EventCard = ({dept}: any) => {
     // dept = "education"
     const date: Date = new Date(2021, 9, 15, 19, 29, 0)
     let dateString = date.toDateString().split(' ')
-    const status = "Ongoing" // need time to figure out how to format this
+    // const status = "Ongoing" // need time to figure out how to format this
 
     return (
         /* spacing */

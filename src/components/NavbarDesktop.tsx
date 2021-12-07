@@ -1,10 +1,7 @@
 import React from "react";
-import {
-  CalendarIcon,
-  NewspaperIcon,
-  BriefcaseIcon,
-  ArchiveIcon,
-} from "@heroicons/react/outline";
+import HistoryIcon from '@mui/icons-material/History';
+import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import NavButtonDesktop from "./NavButtonDesktop";
 
 function NavbarDesktop(props: any) {
@@ -12,16 +9,13 @@ function NavbarDesktop(props: any) {
     <div className="sm:flex flex-col  items-end h-full w-full ">
       <nav>
         <NavButtonDesktop href="/events" text="Events">
-          <CalendarIcon className="h-12 w-12" />
+          <BookmarkAddedIcon className="h-12 w-12 transform scale-150" />
         </NavButtonDesktop>
-        {/* <NavButtonDesktop href="/news" text="News">
-          <NewspaperIcon className="h-12 w-12" />
-        </NavButtonDesktop> */}
         <NavButtonDesktop href="/apply" text="Apply">
-          <BriefcaseIcon className="h-12 w-12" />
+          <NoteAltIcon className="h-12 w-12 transform scale-150" />
         </NavButtonDesktop>
         <NavButtonDesktop href="/history" text="History">
-          <ArchiveIcon className="h-12 w-12" />
+          <HistoryIcon className="h-12 w-12 transform scale-150" />
         </NavButtonDesktop>
       </nav>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { CalendarIcon } from "@heroicons/react/outline";
+// import { CalendarIcon } from "@heroicons/react/outline";
 
 function NavButton(props: any) {
   return (
@@ -8,7 +8,7 @@ function NavButton(props: any) {
       className="flex flex-col justify-center items-center w-full"
     >
       {props.children}
-      <div className="text-xs">{props.text}</div>
+      <div className="text-sm">{props.text}</div>
     </a>
   );
 }

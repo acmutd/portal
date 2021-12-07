@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import NavbarDesktop from "./NavbarDesktop";
-import SidebarContent from "./SidebarContent";
+// import SidebarContent from "./SidebarContent";
 
 function Framework(props: any) {
   return (
