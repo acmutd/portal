@@ -8,11 +8,11 @@ function Events(props: any) {
     <Framework
       content={
         <div className="text-gray-900 dark:text-gray-50 pb-20 flex justify-center flex-col">
-          <EventCard dept="education"/>
+          <EventCard dept="education" status={1}/>
           <EventCard dept="development"/>
-          <EventCard dept="media"/>
+          <EventCard dept="media" status={2}/>
           <EventCard dept="industry"/>
-          <EventCard dept="education"/>
+          <EventCard dept="education" status={2}/>
         </div>
       }
       sidebar={

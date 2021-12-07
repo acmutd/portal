@@ -1,5 +1,6 @@
 import React from "react"
 import Logo from "./DivisionLogo"
+import EventStatus from "./EventStatus"
 
 const displayText = {
     projects: "projects.",
@@ -12,19 +13,21 @@ const displayText = {
     hackutd: "hackutd.",
 }
 
-const EventCard = ({dept}: any) => {
+const EventCard = ({dept, status}: any) => {
     // hardcoded info for each event card, this'll be what we need for each card atm
     const name = "ACM x Goldman Sachs Engineering Presents: alloy"
-    // dept = "education"
     const date: Date = new Date(2021, 9, 15, 19, 29, 0)
     let dateString = date.toDateString().split(' ')
-    // const status = "Ongoing" // need time to figure out how to format this
+    // dept = "education"
+    // status = 1
 
     return (
         /* spacing */
         <div className="h-auto w-full p-6 pb-0">
             {/* card */}
-            <div className="h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
+            <div className=" relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
+                {/* status card */}
+                <EventStatus status={status}/>
                 {/* date */}
                 <div className="flex flex-col justify-center">
                     <div className="text-center font-light text-base">
