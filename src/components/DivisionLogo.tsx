@@ -17,6 +17,7 @@ import WhiteEduLogo from '../assets/svgs/division_logos/white/education.svg';
 import WhiteCommLogo from '../assets/svgs/division_logos/white/community.svg';
 import WhiteHackLogo from '../assets/svgs/division_logos/white/hackutd.svg';
 import WhiteACMLogo from '../assets/svgs/acm.svg';
+import BlackACMLogo from '../assets/svgs/acmblack.svg';
 
 const divisionDecider = {
     projects: {
@@ -62,7 +63,7 @@ const divisionDecider = {
     acm: {
         display: "ACM",
         white: WhiteACMLogo,
-        black: WhiteACMLogo
+        black: BlackACMLogo
     }
 }
 
