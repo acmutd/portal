@@ -1,6 +1,7 @@
 import React from "react"
 import Logo from "./DivisionLogo"
 import EventStatus from "./EventStatus"
+import { ReactComponent as AcmLogo } from "../assets/svgs/acm.svg"
 
 const displayText = {
     projects: "projects.",
@@ -13,13 +14,10 @@ const displayText = {
     hackutd: "hackutd.",
 }
 
-const EventCard = ({dept, status}: any) => {
-    // hardcoded info for each event card, this'll be what we need for each card atm
-    const name = "ACM x Goldman Sachs Engineering Presents: alloy"
-    const date: Date = new Date(2021, 9, 15, 19, 29, 0)
-    let dateString = date.toDateString().split(' ')
-    // dept = "education"
-    // status = 1
+const EventCard = ({data}: any) => {
+    const datetime: Date = new Date(data.date)
+    let dateString = datetime.toDateString().split(' ')
+
 
     return (
         /* spacing */
@@ -27,7 +25,7 @@ const EventCard = ({dept, status}: any) => {
             {/* card */}
             <div className=" relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
                 {/* status card */}
-                <EventStatus status={status}/>
+                <EventStatus status={data.status}/>
                 {/* date */}
                 <div className="flex flex-col justify-center">
                     <div className="text-center font-light text-base">
@@ -46,14 +44,21 @@ const EventCard = ({dept, status}: any) => {
                 </div>
                 {/* title & division */}
                 <div className="flex flex-col justify-between">
+                    <div>
+                    </div>
                     <div className="text-right font-medium text-lg pl-4 pt-4 xs:text-xl">
-                        {name}
+                        {data.name}
                     </div>
                     <div className="flex justify-end items-end select-none">
-                        <Logo division={dept} color="white"/>
-                        <div className={`text-center font-semibold text-xs ml-1 projects-gradient ${dept + "-gradient"}`}>
-                            {displayText[dept]}
+                        { data.dept ? <Logo division={data.dept} color="white"/> : <Logo color="white"/>}
+                        { data.dept ? 
+                        <div className={`text-center font-semibold text-xs ml-1 ${data.dept + "-gradient"}`}>
+                            {displayText[data.dept]}
                         </div>
+                        :
+                        <div className={`text-center font-semibold self-center text-xs ml-1`}>
+                            ACM
+                        </div>}
                     </div>
                 </div>
             </div>

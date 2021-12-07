@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Introduction to Firebase with GCP",
+        "dept": "education",
+        "date": "2021-08-07T18:00:00",
+        "status": 1
+    },
+    {
+        "name": "ACM x Goldman Sachs Engineering Presents: alloy",
+        "dept": "industry",
+        "date": "2021-09-30T19:00:00",
+        "status": 0
+    },
+    {
+        "name": "Coding Hangouts",
+        "dept": "development",
+        "date": "2021-11-16T19:00:00",
+        "status": 0
+    },
+    {
+        "name": "HackUTD",
+        "dept": "hackutd",
+        "date": "2021-11-13T10:00:00",
+        "status": 2
+    },
+    {
+        "name": "ACM Research Symposium",
+        "dept": "research",
+        "date": "2021-11-29T20:30:00",
+        "status": 2
+    },
+    {
+        "name": "acm end of semester event",
+        "dept": "",
+        "date": "2021-12-03T18:00:00",
+        "status": 2
+    }
+]

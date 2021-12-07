@@ -16,6 +16,7 @@ import WhiteIndustryLogo from '../assets/svgs/division_logos/white/industry.svg'
 import WhiteEduLogo from '../assets/svgs/division_logos/white/education.svg';
 import WhiteCommLogo from '../assets/svgs/division_logos/white/community.svg';
 import WhiteHackLogo from '../assets/svgs/division_logos/white/hackutd.svg';
+import WhiteACMLogo from '../assets/svgs/acm.svg';
 
 const divisionDecider = {
     projects: {
@@ -57,19 +58,33 @@ const divisionDecider = {
         display: "HackUTD",
         black: HackLogo,
         white: WhiteHackLogo
+    },
+    acm: {
+        display: "ACM",
+        white: WhiteACMLogo,
+        black: WhiteACMLogo
     }
 }
 
 const Logo = ({division, color}: any) => {
-    return <img 
+    if (division) {
+        return <img 
                 src={divisionDecider[division][color]}
                 style={{ height: 22, width: 22 }}
                 alt={divisionDecider[division]["display"]}
             />
+    }
+    else {
+        return  <img 
+            src={divisionDecider["acm"][color]}
+            style={{ height: 24, width: 24 }}
+            alt={divisionDecider["acm"]["display"]}
+        />
+     }
 }
 
 Logo.propTypes = {
-    division: PropTypes.string.isRequired,
+    division: PropTypes.string,
     color: PropTypes.string.isRequired
 }
 

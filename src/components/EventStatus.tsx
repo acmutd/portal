@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import CheckIcon from '@mui/icons-material/Check';
 
 // 1 = ongoing
 // 2 = attending
@@ -14,6 +15,7 @@ const EventStatus = ({ status }) => {
     if (status === 2) {
         return <div className="status attending-gradient">
             Attending
+            <CheckIcon/>
         </div>
     }
     else {

@@ -78,8 +78,13 @@
     height: 8vh;
   }
 
-  .top-1\/12 {
-    top: 8%;
+  .top-1\/10 {
+    top: 10%;
+  }
+
+  .scale-45 {
+    --tw-scale-x: .45;
+    --tw-scale-y: .45;
   }
 }
 
