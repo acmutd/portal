@@ -6,7 +6,7 @@ import data from '../components/eventdata.json'
 
 function Events(props: any) {
   const [info, setInfo] = useState(false)
-  const [currData, setCurrData] = useState([])
+  // const [currData, setCurrData] = useState([])
 
   const handleClick = () => {
       setInfo(true)
@@ -17,15 +17,15 @@ function Events(props: any) {
       setInfo(false)
   }
 
-  const handleData = (data) => {
-    setCurrData(data)
-    // lowkey forgot why I made this func but I gotta go do something else so prolly not gonna remember looool
-  }
+  // const handleData = (data) => {
+  //   setCurrData(data)
+  //   // lowkey forgot why I made this func but I gotta go do something else so prolly not gonna remember looool
+  // }
   return (
     <Framework
       content={
         <>
-            {data.map(ele => <EventCard key={ele.key} data={ele} mount={handleClick} unMount={handleUnmount} info={info} handleData={handleData}/>)}
+            {data.map(ele => <EventCard key={ele.key} data={ele} mount={handleClick} unMount={handleUnmount} info={info}/>)}{/* handleData={handleData}/>)} */}
         </>
       }
       sidebar={
