@@ -1,5 +1,6 @@
 import React from "react"
 import Logo from "./DivisionLogo"
+import EventInfoCard from "./EventInfoCard"
 import EventStatus from "./EventStatus"
 
 const displayText = {
@@ -13,15 +14,17 @@ const displayText = {
     hackutd: "hackutd.",
 }
 
-const EventCard = ({data}: any) => {
+const EventCard = ({data, mount, unMount, info, handleData}: any) => {
     const datetime: Date = new Date(data.date)
     let dateString = datetime.toDateString().split(' ')
 
     return (
         /* spacing */
         <div className="h-auto w-full p-6 pt-0">
+            {/* info */}
+            { info ? <EventInfoCard data={data} unMount={unMount}/> : null}
             {/* card */}
-            <div className=" relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none">
+            <div className="relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none" onClick={mount}>
                 {/* status card */}
                 <EventStatus status={data.status}/>
                 {/* date */}
