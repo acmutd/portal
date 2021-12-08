@@ -3,10 +3,11 @@ import EventCard from "../components/EventCard";
 import Framework from "../components/Framework";
 import SidebarContent from "../components/SidebarContent";
 import data from '../components/eventdata.json'
+import EventInfoCard from "../components/EventInfoCard";
 
 function Events(props: any) {
   const [info, setInfo] = useState(false)
-  // const [currData, setCurrData] = useState([])
+  const [currData, setCurrData] = useState()
 
   const handleClick = () => {
       setInfo(true)
@@ -17,15 +18,17 @@ function Events(props: any) {
       setInfo(false)
   }
 
-  // const handleData = (data) => {
-  //   setCurrData(data)
-  //   // lowkey forgot why I made this func but I gotta go do something else so prolly not gonna remember looool
-  // }
+  const handleData = (event) => {
+    setCurrData(event)
+    console.log(currData)
+  }
   return (
     <Framework
       content={
         <>
-            {data.map(ele => <EventCard key={ele.key} data={ele} mount={handleClick} unMount={handleUnmount} info={info}/>)}{/* handleData={handleData}/>)} */}
+            {data.map(ele => <EventCard key={ele.key} data={ele} mount={handleClick} unMount={handleUnmount} info={info} handleData={handleData}/>)}
+            { info ? <EventInfoCard data={currData} unMount={handleUnmount}/> : null}
+
         </>
       }
       sidebar={

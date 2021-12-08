@@ -3,13 +3,14 @@ import React, { useEffect } from "react";
 const EventInfoCard = (props: any) => {
 
     useEffect(() => {
-        // testing
-        // console.log(props.data.name)
+        document.getElementById("eventinfocard").classList.add("top-1/4")
+        new Promise(resolve => setTimeout(resolve, 50))
+        .then(() => document.getElementById("eventinfocard").classList.remove("top-full"))
+        console.log("clic")
     }, [])
 
-    return <div className="fixed top-3/4 left-0 w-screen h-screen flex flex-col items-center transition-all z-50">
-        <div className="text-gray-100 text-8xl bg-red-400 max-w-3xl" onClick={props.unMount}>
-            Info Card yo wassup<br/>
+    return <div id="eventinfocard" className="fixed top-full h-screen max-w-xl flex flex-col items-center z-50 transition-all duration-300 ease-in-out">
+        <div className="text-gray-100 text-6xl h-full bg-gray-600 w-4/5 rounded-t-3xl" onClick={props.unMount}>
             {props.data.name}
         </div>
     </div>

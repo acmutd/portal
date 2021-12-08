@@ -7,6 +7,10 @@
     padding-bottom: env(safe-area-inset-bottom);
   }
 
+  .w-inherit {
+    width: inherit;
+  }
+
   .rounded-tr-bl-xl {
     border-top-right-radius: 0.75rem/* 12px */;
     border-bottom-left-radius: 0.75rem/* 12px */;
@@ -20,6 +24,10 @@
   .text-gradient {
     background-clip: text;
     color: transparent;
+  }
+
+  .w-xl {
+    width: 36rem;
   }
 
   .projects-gradient {

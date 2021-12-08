@@ -18,13 +18,16 @@ const EventCard = ({data, mount, unMount, info, handleData}: any) => {
     const datetime: Date = new Date(data.date)
     let dateString = datetime.toDateString().split(' ')
 
+    const handleClick = () => {
+        handleData(data)
+        mount()
+    }
+
     return (
         /* spacing */
         <div className="h-auto w-full p-6 pt-0">
-            {/* info */}
-            { info ? <EventInfoCard data={data} unMount={unMount}/> : null}
             {/* card */}
-            <div className="relative h-auto w-full p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none" onClick={mount}>
+            <div className="relative h-auto w-inherit p-4 bg-gray-800 rounded-2xl flex justify-between cursor-pointer select-none" onClick={handleClick}>
                 {/* status card */}
                 <EventStatus status={data.status}/>
                 {/* date */}
@@ -38,10 +41,6 @@ const EventCard = ({data, mount, unMount, info, handleData}: any) => {
                     <div className="text-center font-light text-xl">
                         {dateString[1]}
                     </div>
-                    {/* grabbing time of event as such - */}
-                    {/* <div className="text-center font-light text-xs">
-                        {(datetime.getHours() + 1) + ":" + (datetime.getMinutes() + 1)}
-                    </div> */}
                 </div>
                 {/* title & division */}
                 <div className="flex flex-col justify-between">

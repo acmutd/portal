@@ -3,7 +3,6 @@ import HistoryIcon from '@mui/icons-material/History';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import NavButtonDesktop from "./NavButtonDesktop";
-import { ReactComponent as AcmLogo } from '../assets/svgs/acm.svg'
 
 function NavbarDesktop(props: any) {
   return (
