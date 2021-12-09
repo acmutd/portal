@@ -4,11 +4,11 @@ import NavbarDesktop from "./NavbarDesktop";
 // import SidebarContent from "./SidebarContent";
 import ContentHeader from "./ContentHeader";
 
-function Framework(props: any) {
+const Framework = (props: any) => {
   return (
     <div className="flex flex-col h-min-screen md:flex-row justify-end">
       {/* desktop navbar */}
-      <div className="hidden md:flex flex-grow border-gray-400 dark:border-gray-600 border-r">
+      <div className="hidden md:flex flex-grow border-gray-400 dark:border-gray-600 border-r w-2/12">
         <NavbarDesktop />
       </div>
       {/* main content area */}
@@ -20,7 +20,7 @@ function Framework(props: any) {
         <ContentHeader/>
       </div>
       {/* sidebar area */}
-      <div className="flex-grow md:border-l border-gray-400 dark:border-gray-600">
+      <div className="flex-grow md:border-l border-gray-400 dark:border-gray-600 w-2/12">
         <div className="hidden lg:block h-full">
           <div className="flex flex-col max-w-sm sticky top-0">{props.sidebar}</div>
         </div>

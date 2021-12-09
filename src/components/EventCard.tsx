@@ -1,6 +1,5 @@
 import React from "react"
 import Logo from "./DivisionLogo"
-import EventInfoCard from "./EventInfoCard"
 import EventStatus from "./EventStatus"
 
 const displayText = {
@@ -14,7 +13,7 @@ const displayText = {
     hackutd: "hackutd.",
 }
 
-const EventCard = ({data, mount, unMount, info, handleData}: any) => {
+const EventCard = ({data, mount, handleData}: any) => {
     const datetime: Date = new Date(data.date)
     let dateString = datetime.toDateString().split(' ')
 

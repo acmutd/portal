@@ -4,7 +4,7 @@ import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import NavButtonDesktop from "./NavButtonDesktop";
 
-function NavbarDesktop(props: any) {
+const NavbarDesktop = () => {
   return (
     <div className="sm:flex flex-col items-end h-full w-full ">
       <nav className="sticky top-0">
