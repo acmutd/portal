@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { jwt } from "../../api/state";
 import { useRecoilState } from "recoil";
+import ACMLogo from "../../assets/images/acm-logo-light.png";
 
 const Auth0Authorize = () => {
   const [token, setToken] = useRecoilState(jwt);
@@ -45,12 +46,8 @@ const Auth0Authorize = () => {
   return (
     <AuthorizeComponent>
       <div className="container">
-        <img
-          className="acm-logo"
-          src="https://www.acmutd.co/brand/General/Assets/Logos/favicon.png"
-          alt="ACM Logo"
-        />
-        <h1 className="text">Authorization in Progress... </h1>
+        <img className="acm-logo" src={ACMLogo} alt="ACM Logo" />
+        <h1 className="text">Signing in&#8230;</h1>
       </div>
     </AuthorizeComponent>
   );
