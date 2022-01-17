@@ -1,25 +1,20 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import "./OrangeButton.css";
 
 interface ButtonProps {
   text: string;
+  /**
+   * @deprecated Use redirectURL instead.
+   */
   onClick?: () => void;
   redirectURL?: string;
 }
 
 const Button = (props: ButtonProps) => {
-  const history = useHistory();
-
-  const buttonClick = () => {
-    if (props.onClick) props.onClick();
-    if (props.redirectURL) history.push(props.redirectURL);
-  };
-
   return (
-    <button className="orange-button" onClick={buttonClick}>
+    <a className="orange-button" href={props.redirectURL}>
       {props.text}
-    </button>
+    </a>
   );
 };
 
