@@ -23,7 +23,11 @@ const Welcome = () => {
   }, [isLoading, isAuthenticated, token, getAccessTokenSilently, setToken, user]);
 
   return (
-    <Message title="Welcome to ACM!" buttonText="Get Started!" buttonURL="/profile" />
+    <Message
+      title="Welcome to the ACM Portal."
+      buttonText="Go to ACM Profile"
+      buttonURL="/profile"
+    />
   );
 };
 
