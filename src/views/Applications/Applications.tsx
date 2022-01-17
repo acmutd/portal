@@ -7,6 +7,7 @@ import {
   CircularProgress,
   CardContent,
   CardActions,
+  Button,
 } from "@material-ui/core";
 import Navbar from "../../components/Navbar/DarkNavbar";
 import { useHistory } from "react-router-dom";
@@ -14,7 +15,6 @@ import "./Applications.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useRecoilValue } from "recoil";
 import { profile, application } from "../../api/state";
-import Button from "../../components/OrangeButton/OrangeButton";
 const { Content } = Layout;
 
 const Applications = () => {
@@ -32,12 +32,6 @@ const Applications = () => {
     }
   }, [isLoading, isAuthenticated, user_profile, history]);
 
-  const linkRedirect = (link: string) => {
-    if (link.includes("http")) {
-      window.location.href = link;
-    } else history.push(link);
-  };
-
   const cardApps = () => {
     return (
       <Grid container alignItems="stretch" spacing={2}>
@@ -52,14 +46,20 @@ const Applications = () => {
                     style={{ justifyContent: "center", paddingBottom: "20px" }}
                   >
                     <Button
-                      text="Apply here!"
-                      onClick={() => linkRedirect(`${app.path_name}`)}
-                    />
+                      href={app.path_name}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Apply here
+                    </Button>
                     {app.external_link && (
                       <Button
-                        text="Learn more"
-                        onClick={() => linkRedirect(app.external_link)}
-                      />
+                        href={app.external_link}
+                        variant="contained"
+                        color="primary"
+                      >
+                        Learn more
+                      </Button>
                     )}
                   </CardActions>
                 </Card>
