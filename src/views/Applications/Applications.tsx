@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import { Layout } from "antd";
-import { Card, CardHeader, Grid, CircularProgress, CardContent, CardActions } from '@material-ui/core';
+import {
+  Card,
+  CardHeader,
+  Grid,
+  CircularProgress,
+  CardContent,
+  CardActions,
+} from "@material-ui/core";
 import Navbar from "../../components/Navbar/DarkNavbar";
 import { useHistory } from "react-router-dom";
 import "./Applications.css";
@@ -32,32 +39,43 @@ const Applications = () => {
   };
 
   const cardApps = () => {
-    return <Grid container alignItems="stretch" spacing={4}>
-      {open_applications.applications?.map((app) => {
-      if(app.active) {
-        return <Grid item xs={6} md={6} lg={4}>
-          <Card>
-            <CardHeader title={app.typeform_name}/>
-              <CardContent>{app.description}
-              </CardContent>
-              <CardActions style={{justifyContent: "center", paddingBottom: "20px"}}>
-                <Button text="Apply here!" onClick={() => linkRedirect(`${app.path_name}`)} />
-                {app.external_link && (
-                  <Button text="Learn more" onClick={() => linkRedirect(app.external_link)} />
-                )}
-              </CardActions>
-          </Card>
-        </Grid>
-      }
-      })}
-    </Grid>
-  }
+    return (
+      <Grid container alignItems="stretch" spacing={2}>
+        {open_applications.applications?.map((app) => {
+          if (app.active) {
+            return (
+              <Grid item xs={12} md={6} lg={4}>
+                <Card>
+                  <CardHeader title={app.typeform_name} />
+                  <CardContent>{app.description}</CardContent>
+                  <CardActions
+                    style={{ justifyContent: "center", paddingBottom: "20px" }}
+                  >
+                    <Button
+                      text="Apply here!"
+                      onClick={() => linkRedirect(`${app.path_name}`)}
+                    />
+                    {app.external_link && (
+                      <Button
+                        text="Learn more"
+                        onClick={() => linkRedirect(app.external_link)}
+                      />
+                    )}
+                  </CardActions>
+                </Card>
+              </Grid>
+            );
+          }
+        })}
+      </Grid>
+    );
+  };
 
   return (
     <Layout>
       <Navbar selectedPage="applications" />
       <Content>
-          {open_applications.isLoading ? <CircularProgress/> : cardApps()}
+        {open_applications.isLoading ? <CircularProgress /> : cardApps()}
       </Content>
     </Layout>
   );
