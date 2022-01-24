@@ -33,6 +33,14 @@ const DarkNavbar = ({ selectedPage }: NavbarProps) => {
         mode="horizontal"
         defaultSelectedKeys={[selectedPage]}
         onSelect={navigate}
+        style={
+          window.screen.width <= 700
+            ? {
+                display: "flex",
+                flexDirection: "column",
+              }
+            : {}
+        }
       >
         <Menu.Item key="profile">Profile</Menu.Item>
         <Menu.Item key="calendar">Calendar</Menu.Item>
