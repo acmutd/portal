@@ -1,7 +1,16 @@
 @import "~antd/dist/antd.css";
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap");
 .App {
   text-align: center;
+}
+
+* {
+  font-family: "Roboto", sans-serif !important;
+}
+
+h1,
+title {
+  font-family: "Poppins", sans-serif !important;
 }
 
 body {
