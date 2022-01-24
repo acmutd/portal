@@ -7,8 +7,8 @@ import { profile } from "../../api/state";
 import { useRecoilValue } from "recoil";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { firebaseStorage as storage } from '../../api/firebase/config';
-import { ref, uploadBytes, list } from 'firebase/storage';
+import { firebaseStorage as storage } from "../../api/firebase/config";
+import { ref, uploadBytes, list } from "firebase/storage";
 // import DiscordPane from "./Discord";
 const { Content } = Layout;
 const { TabPane } = Tabs;
@@ -23,12 +23,17 @@ const Profile = () => {
 
   useEffect(() => {
     if (isLoading || user_profile.exists || user_profile.isLoading) {
-      const resumeRef = ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`);
-      list(ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/`)).then((data) => {
-        data.items.forEach((i) => {
-          if (i.name === resumeRef.name) setPreviousUpload(true);
-        });
-      });
+      const resumeRef = ref(
+        storage,
+        `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`
+      );
+      list(ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/`)).then(
+        (data) => {
+          data.items.forEach((i) => {
+            if (i.name === resumeRef.name) setPreviousUpload(true);
+          });
+        }
+      );
       return;
     }
     if (isAuthenticated) {
@@ -37,17 +42,24 @@ const Profile = () => {
   }, [isLoading, isAuthenticated, user_profile, history]);
 
   const handleResumeUploadReady = () => {
-    if (uploadRef.current.files.length !== 1 ||
-      !uploadRef.current.files[0].name.endsWith(".pdf")) return alert("Please make sure you upload a single file ending in .pdf");
+    if (
+      uploadRef.current.files.length !== 1 ||
+      !uploadRef.current.files[0].name.endsWith(".pdf")
+    )
+      return alert("Please make sure you upload a single file ending in .pdf");
     setUploadReady(true);
   };
   const handleResumeUpload = () => {
-
-    const resumeRef = ref(storage, `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`);
-    uploadBytes(resumeRef, uploadRef.current.files[0]).then((result) => {
-      alert("Upload succeeded...");
-      setPreviousUpload(true);
-    }).catch((err) => alert("Upload failed. Please try again later..."));
+    const resumeRef = ref(
+      storage,
+      `${process.env.REACT_APP_GCP_RESUME_PATH}/${user_profile.profile?.sub}.pdf`
+    );
+    uploadBytes(resumeRef, uploadRef.current.files[0])
+      .then((result) => {
+        alert("Upload succeeded...");
+        setPreviousUpload(true);
+      })
+      .catch((err) => alert("Upload failed. Please try again later..."));
     setUploadReady(false);
   };
 
@@ -71,8 +83,16 @@ const Profile = () => {
   //     <DiscordPane />
   //   );
 
+  useEffect(() => {
+    if (window.screen.width <= 700) {
+      const nav = document.querySelector("div.ant-tabs.ant-tabs-left") as any;
+      nav.style.display = "flex";
+      nav.style.flexDirection = "column";
+    }
+  }, []);
+
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
       <Navbar selectedPage="profile" />
       <Content>
         <Tabs defaultActiveKey="1" tabPosition="left">
@@ -168,16 +188,24 @@ const Profile = () => {
           </TabPane>
           <TabPane tab="Upload Resume" key={"KEKW"}>
             <div id="upload_container">
-              <input id="resume_input" type="file" ref={uploadRef} onChange={handleResumeUploadReady} />
-              {previousUpload && <div className="upload_found">{`Resume record found. To replace the current record, please reupload your resume.`}</div>}
-              {!uploadReady ?
+              <input
+                id="resume_input"
+                type="file"
+                ref={uploadRef}
+                onChange={handleResumeUploadReady}
+              />
+              {previousUpload && (
+                <div className="upload_found">{`Resume record found. To replace the current record, please reupload your resume.`}</div>
+              )}
+              {!uploadReady ? (
                 <>
-                  <label id="resume_input_label" htmlFor="resume_input">Upload Resume</label>
-                </> :
-                <Button
-                  text="Confirm Upload"
-                  onClick={handleResumeUpload}
-                />}
+                  <label id="resume_input_label" htmlFor="resume_input">
+                    Upload Resume
+                  </label>
+                </>
+              ) : (
+                <Button text="Confirm Upload" onClick={handleResumeUpload} />
+              )}
             </div>
           </TabPane>
           {/*<TabPane tab="Badges" key={3}>
