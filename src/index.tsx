@@ -1,6 +1,5 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 import config from "./config/auth0_config";
@@ -9,6 +8,9 @@ import * as Sentry from "@sentry/react";
 import Loading from "./views/Message/Loading";
 import { RecoilRoot as GlobalState } from "recoil";
 import Error from "./views/Message/Error";
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
+import "./index.css";
 
 /*
 Sentry Initialization:
@@ -33,6 +35,16 @@ Sentry.init({
   environment: process.env.NODE_ENV,
   release: process.env.npm_package_version,
 });
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#F37E03",
+    },
+  },
+  typography: {
+    fontFamily: ["Poppins", "Roboto", "sans-serif"].join(","),
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
@@ -47,7 +59,10 @@ ReactDOM.render(
       <Sentry.ErrorBoundary fallback={<Error />}>
         <React.Suspense fallback={<Loading />}>
           <GlobalState>
-            <App />
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </ThemeProvider>
           </GlobalState>
         </React.Suspense>
       </Sentry.ErrorBoundary>

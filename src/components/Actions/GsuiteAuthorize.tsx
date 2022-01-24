@@ -4,6 +4,7 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { jwt_gsuite, auth_gsuite } from "../../api/state";
 import { getCookie } from "../../acmApi/cookieManager";
 import { useHistory, Redirect } from "react-router-dom";
+import ACMLogo from "../../assets/images/acm-logo-light.png";
 
 const GsuiteAuthorize = () => {
   const [Jwt, setJwt] = useRecoilState(jwt_gsuite);
@@ -53,12 +54,8 @@ const GsuiteAuthorize = () => {
   return (
     <AuthorizeComponent>
       <div className="container">
-        <img
-          className="acm-logo"
-          src="https://www.acmutd.co/brand/General/Assets/Logos/favicon.png"
-          alt="ACM Logo"
-        />
-        <h1 className="text">Authorization in Progress... </h1>
+        <img className="acm-logo" src={ACMLogo} alt="ACM Logo" />
+        <h1 className="text">Signing in&#8230;</h1>
       </div>
     </AuthorizeComponent>
   );

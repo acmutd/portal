@@ -1,6 +1,7 @@
 import React from "react";
 import ReactLoading from "react-loading";
 import Button from "../../components/OrangeButton/OrangeButton";
+import ACMLogo from "../../assets/images/acm-logo-light.png";
 import styled from "styled-components";
 
 interface message {
@@ -16,11 +17,7 @@ const GenericMessage = (props: message) => {
   return (
     <MessageComponent>
       <div className="container">
-        <img
-          className="acm-logo"
-          src="https://www.acmutd.co/brand/General/Assets/Logos/favicon.png"
-          alt="ACM Logo"
-        />
+        <img className="acm-logo" src={ACMLogo} alt="ACM Logo" />
         <h1 className="text">{props.title}</h1>
         {props.loading ? (
           <ReactLoading
