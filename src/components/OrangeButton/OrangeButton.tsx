@@ -3,16 +3,17 @@ import "./OrangeButton.css";
 
 interface ButtonProps {
   text: string;
-  /**
-   * @deprecated Use redirectURL instead.
-   */
   onClick?: () => void;
   redirectURL?: string;
 }
 
 const Button = (props: ButtonProps) => {
   return (
-    <a className="orange-button" href={props.redirectURL}>
+    <a
+      className="orange-button"
+      onClick={props.onClick}
+      href={props.redirectURL}
+    >
       {props.text}
     </a>
   );
