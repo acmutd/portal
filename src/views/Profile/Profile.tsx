@@ -92,7 +92,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Navbar selectedPage="profile" />
       <Content>
         <Tabs defaultActiveKey="1" tabPosition="left">
