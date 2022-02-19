@@ -2,117 +2,21 @@ import React from "react";
 import { Layout, Calendar, Badge } from "antd";
 import Navbar from "../../components/Navbar/DarkNavbar";
 import "./Calendar.css";
+import { useRecoilValue } from "recoil";
+import { eventMap } from "../../api/state";
 
-interface calendarEvent {
+export interface calendarEvent {
   color: string;
   content: string;
   link?: string;
 }
 
 const CalendarPage = () => {
+  const eventsMap = useRecoilValue(eventMap);
+
   const getListData = (value: any) => {
-    let listData: calendarEvent[] = [];
-    switch (value.year()) {
-      case 2021:
-        switch (value.month()) {
-          case 0:
-            switch (value.date()) {
-              case 29:
-                listData = [
-                  {
-                    color: "orange",
-                    content: "ACM Spring Kickoff",
-                    link: "https://acmutd.co",
-                  },
-                ];
-                break;
-              default:
-            }
-            break;
-          case 1:
-            switch (value.date()) {
-              case 11:
-                listData = [
-                  {
-                    color: "green",
-                    content: "Intern Fair Prep",
-                    link: "https://acmutd.co",
-                  },
-                ];
-                break;
-              case 12:
-                listData = [
-                  {
-                    color: "purple",
-                    content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
-                  },
-                ];
-                break;
-              case 24:
-                listData = [
-                  {
-                    color: "green",
-                    content: "Hacking the Hackathon",
-                    link: "https://acmutd.co",
-                  },
-                ];
-                break;
-              default:
-            }
-            break;
-          case 2:
-            switch (value.date()) {
-              case 5:
-                listData = [
-                  {
-                    color: "purple",
-                    content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
-                  },
-                ];
-                break;
-              case 26:
-                listData = [
-                  {
-                    color: "purple",
-                    content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
-                  },
-                ];
-                break;
-              default:
-            }
-            break;
-          case 3:
-            switch (value.date()) {
-              case 16:
-                listData = [
-                  {
-                    color: "purple",
-                    content: "Fireside Talks with ACM Development",
-                    link: "https://github.com/acmutd",
-                  },
-                ];
-                break;
-              case 28:
-                listData = [
-                  {
-                    color: "blue",
-                    content: "Projects Presentation Night",
-                    link: "https://github.com/acmutd",
-                  },
-                ];
-                break;
-              default:
-            }
-            break;
-          default:
-        }
-        break;
-      default:
-    }
-    return listData || [];
+    const dateKey = `${value.date()}${value.month()}${value.year()}`;
+    return eventsMap.get(dateKey) || [];
   };
 
   const dateCellRender = (value: any) => {
