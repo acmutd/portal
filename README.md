@@ -26,7 +26,7 @@ report, open an issue and follow the instructions in the template.
 
 ### Questions
 
-If you have questions about this project, contact ACM's engineering team at engineering@acmutd.co.
+If you have questions about this project, contact ACM's Development team at development@acmutd.co.
 
 ### Contributors
 

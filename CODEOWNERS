@@ -1,6 +1,6 @@
 /* Files by default will request the project lead*/
 *               @Stevenmqnguyen
 
-.github/**/*    @Stevenmqnguyen @WillieCubed
+.github/**/*    @Stevenmqnguyen
 
 src/**/*        @acmutd/portal-maintainers
